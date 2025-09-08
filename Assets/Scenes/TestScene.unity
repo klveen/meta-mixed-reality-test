@@ -10480,6 +10480,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2026599023}
   - component: {fileID: 2026599022}
+  - component: {fileID: 2026599024}
   m_Layer: 0
   m_Name: SpawnHandler
   m_TagString: Untagged
@@ -10519,6 +10520,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2026599024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2026599021}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea29c4c73b5364f17aee668e69b002bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cubePrefab: {fileID: 8914539865366099062, guid: 03ff16dcba08c40c49e86f00e7e70f5f,
+    type: 3}
+  rightHand: {fileID: 970457274}
+  dictationService: {fileID: 1389807030}
 --- !u!1 &2035249045
 GameObject:
   m_ObjectHideFlags: 0
