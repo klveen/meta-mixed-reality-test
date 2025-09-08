@@ -17,8 +17,8 @@ public class SpawnCubeOnA : MonoBehaviour
 
     void Update()
     {
-        // A button = OVRInput.Button.One on the right Touch controller
-        if (OVRInput.GetDown(OVRInput.Button.One, OVRInput.Controller.RTouch))
+    // B button = OVRInput.Button.Two on the right Touch controller
+    if (OVRInput.GetDown(OVRInput.Button.Two, OVRInput.Controller.RTouch))
         {
             if (cubePrefab != null && rightHandAnchor != null)
             {

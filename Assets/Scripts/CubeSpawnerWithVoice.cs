@@ -62,7 +62,7 @@ public class CubeSpawnerWithVoice : MonoBehaviour
         {
             var rb = currentCube.GetComponent<Rigidbody>();
             if (rb != null)
-                rb.isKinematic = false; // allow gravity
+                rb.isKinematic = true; // keep cube stationary at release position
         }
 
         isRecording = false;
