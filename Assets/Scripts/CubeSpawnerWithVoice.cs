@@ -34,7 +34,12 @@ public class CubeSpawnerWithVoice : MonoBehaviour
         if (currentCube != null) return;
 
         currentCube = Instantiate(cubePrefab);
+        Debug.Log($"[CubeSpawnerWithVoice] Instantiated prefab: {currentCube.name}");
         cubeText = currentCube.GetComponentInChildren<TextBoxController>();
+        if (cubeText != null)
+            Debug.Log("[CubeSpawnerWithVoice] Found TextBoxController in spawned cube.");
+        else
+            Debug.LogWarning("[CubeSpawnerWithVoice] No TextBoxController found in spawned cube!");
 
         if (dictationService != null)
         {
@@ -48,6 +53,7 @@ public class CubeSpawnerWithVoice : MonoBehaviour
 
     private void StopRecording()
     {
+        Debug.Log("[CubeSpawnerWithVoice] StopRecording called");
         if (!isRecording) return;
 
         if (dictationService != null)
@@ -57,13 +63,7 @@ public class CubeSpawnerWithVoice : MonoBehaviour
             dictationService.DictationEvents.OnFullTranscription.RemoveListener(OnFinal);
         }
 
-        // Let the cube "drop" (detach from hand, enable physics if Rigidbody attached)
-        if (currentCube != null)
-        {
-            var rb = currentCube.GetComponent<Rigidbody>();
-            if (rb != null)
-                rb.isKinematic = true; // keep cube stationary at release position
-        }
+        // Let the cube "drop" (detach from hand). Do not change physics; prefab handles its own Rigidbody/physics.
 
         isRecording = false;
         currentCube = null;
@@ -72,11 +72,27 @@ public class CubeSpawnerWithVoice : MonoBehaviour
 
     private void OnPartial(string text)
     {
-        cubeText?.SetText(text);
+        if (cubeText != null)
+        {
+            Debug.Log($"[CubeSpawnerWithVoice] OnPartial called, setting text: {text}");
+            cubeText.SetText(text);
+        }
+        else
+        {
+            Debug.LogWarning("[CubeSpawnerWithVoice] OnPartial called but cubeText is null!");
+        }
     }
 
     private void OnFinal(string text)
     {
-        cubeText?.SetText(text);
+        if (cubeText != null)
+        {
+            Debug.Log($"[CubeSpawnerWithVoice] OnFinal called, setting text: {text}");
+            cubeText.SetText(text);
+        }
+        else
+        {
+            Debug.LogWarning("[CubeSpawnerWithVoice] OnFinal called but cubeText is null!");
+        }
     }
 }
