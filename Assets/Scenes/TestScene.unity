@@ -11009,7 +11009,7 @@ MonoBehaviour:
   cubePrefab: {fileID: 8466466539041736171, guid: 3ce9de2625df66447b58b9c3d81db40a,
     type: 3}
   rightHand: {fileID: 970457274}
-  dictationService: {fileID: 0}
+  dictationService: {fileID: 398217295}
 --- !u!1 &2035249045
 GameObject:
   m_ObjectHideFlags: 0
