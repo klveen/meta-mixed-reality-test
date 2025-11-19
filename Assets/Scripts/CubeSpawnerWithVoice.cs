@@ -10,7 +10,6 @@ public class CubeSpawnerWithVoice : MonoBehaviour
     [SerializeField] private DictationService dictationService;
 
     [Header("Raycast Settings")]
-    [SerializeField] private Transform fakeFloorTransform; // Optional: drag a floor plane here
     [SerializeField] private LayerMask raycastLayerMask = -1; // Layers to hit with raycast
     [SerializeField] private float maxRayDistance = 10f;
 
